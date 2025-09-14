@@ -1,0 +1,292 @@
+/**
+ * Basit Kargo Admin CSS
+ * Styles for admin panel
+ */
+
+/* Basit Kargo Admin Styles */
+.basit-kargo-metabox {
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    border-radius: 4px;
+    padding: 15px;
+    margin: 10px 0;
+}
+
+.basit-kargo-info-box {
+    background: #e7f3ff;
+    border: 1px solid #0073aa;
+    border-radius: 4px;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.basit-kargo-warning-box {
+    background: #fff3cd;
+    border: 1px solid #ffc107;
+    border-radius: 4px;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.basit-kargo-error-box {
+    background: #f8d7da;
+    border: 1px solid #dc3545;
+    border-radius: 4px;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.basit-kargo-button {
+    display: inline-block;
+    background: #0073aa;
+    color: #fff;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+    font-size: 13px;
+    margin: 2px;
+    transition: background-color 0.3s ease;
+}
+
+.basit-kargo-button:hover {
+    background: #005177;
+    color: #fff;
+    text-decoration: none;
+}
+
+.basit-kargo-button.success {
+    background: #28a745;
+}
+
+.basit-kargo-button.success:hover {
+    background: #218838;
+}
+
+.basit-kargo-button.warning {
+    background: #ffc107;
+    color: #000;
+}
+
+.basit-kargo-button.warning:hover {
+    background: #e0a800;
+}
+
+.basit-kargo-button.danger {
+    background: #dc3545;
+}
+
+.basit-kargo-button.danger:hover {
+    background: #c82333;
+}
+
+.basit-kargo-button.loading {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+.basit-kargo-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+}
+
+.basit-kargo-table th,
+.basit-kargo-table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.basit-kargo-table th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+}
+
+.basit-kargo-table tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Order actions button styling */
+.woocommerce-order-actions .button.basit_kargo_manual_trigger,
+.woocommerce-order-actions .button.basit_kargo_send_mail,
+.woocommerce-order-actions .button.basit_kargo_print_barcode,
+.woocommerce-order-actions .button.basit_kargo_print_pdf,
+.woocommerce-order-actions .button.basit_kargo_barcode_sync,
+.woocommerce-order-actions .button.basit_kargo_manual_tracking_sync {
+    color: #fff !important;
+    background-color: #0073aa !important;
+    border: 1px solid #0073aa !important;
+    font-size: 11px !important;
+    padding: 4px 8px !important;
+    margin: 2px !important;
+    text-decoration: none !important;
+    border-radius: 3px !important;
+    display: inline-block !important;
+    text-indent: 0 !important;
+    overflow: visible !important;
+    white-space: nowrap !important;
+    background-image: none !important;
+    background-size: 0 !important;
+}
+
+.woocommerce-order-actions .button.basit_kargo_manual_trigger:hover,
+.woocommerce-order-actions .button.basit_kargo_send_mail:hover,
+.woocommerce-order-actions .button.basit_kargo_print_barcode:hover,
+.woocommerce-order-actions .button.basit_kargo_print_pdf:hover,
+.woocommerce-order-actions .button.basit_kargo_barcode_sync:hover,
+.woocommerce-order-actions .button.basit_kargo_manual_tracking_sync:hover {
+    background-color: #005177 !important;
+    color: #fff !important;
+    text-decoration: none !important;
+}
+
+.woocommerce-order-actions .button.basit_kargo_loading {
+    opacity: 0.6;
+    cursor: wait !important;
+}
+
+/* Remove pseudo-elements that might hide text */
+.woocommerce-order-actions .button.basit_kargo_manual_trigger::before,
+.woocommerce-order-actions .button.basit_kargo_manual_trigger::after,
+.woocommerce-order-actions .button.basit_kargo_send_mail::before,
+.woocommerce-order-actions .button.basit_kargo_send_mail::after,
+.woocommerce-order-actions .button.basit_kargo_print_barcode::before,
+.woocommerce-order-actions .button.basit_kargo_print_barcode::after,
+.woocommerce-order-actions .button.basit_kargo_print_pdf::before,
+.woocommerce-order-actions .button.basit_kargo_print_pdf::after,
+.woocommerce-order-actions .button.basit_kargo_barcode_sync::before,
+.woocommerce-order-actions .button.basit_kargo_barcode_sync::after,
+.woocommerce-order-actions .button.basit_kargo_manual_tracking_sync::before,
+.woocommerce-order-actions .button.basit_kargo_manual_tracking_sync::after {
+    display: none !important;
+    content: none !important;
+}
+
+/* Settings page styles */
+.basit-kargo-settings-page .form-table th {
+    width: 200px;
+}
+
+.basit-kargo-settings-page .form-table td {
+    padding: 15px 10px;
+}
+
+.basit-kargo-settings-page .description {
+    font-style: italic;
+    color: #666;
+}
+
+/* Statistics box */
+.basit-kargo-statistics {
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.basit-kargo-statistics h3 {
+    margin-top: 0;
+    color: #0073aa;
+}
+
+.basit-kargo-statistics .stat-item {
+    display: inline-block;
+    margin: 10px 20px 10px 0;
+    padding: 10px;
+    background: #fff;
+    border-radius: 4px;
+    border: 1px solid #dee2e6;
+    min-width: 120px;
+    text-align: center;
+}
+
+.basit-kargo-statistics .stat-number {
+    font-size: 24px;
+    font-weight: bold;
+    color: #0073aa;
+    display: block;
+}
+
+.basit-kargo-statistics .stat-label {
+    font-size: 12px;
+    color: #666;
+    text-transform: uppercase;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .basit-kargo-button {
+        display: block;
+        width: 100%;
+        margin: 5px 0;
+        text-align: center;
+    }
+    
+    .basit-kargo-table {
+        font-size: 12px;
+    }
+    
+    .basit-kargo-table th,
+    .basit-kargo-table td {
+        padding: 5px;
+    }
+}
+
+/* Loading animation */
+.basit-kargo-loading {
+    position: relative;
+}
+
+.basit-kargo-loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid #0073aa;
+    border-radius: 50%;
+    animation: basit-kargo-spin 1s linear infinite;
+}
+
+@keyframes basit-kargo-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Success/Error messages */
+.basit-kargo-message {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.basit-kargo-message.success {
+    background: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+}
+
+.basit-kargo-message.error {
+    background: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+}
+
+.basit-kargo-message.warning {
+    background: #fff3cd;
+    border: 1px solid #ffeaa7;
+    color: #856404;
+}
+
+.basit-kargo-message.info {
+    background: #d1ecf1;
+    border: 1px solid #bee5eb;
+    color: #0c5460;
+}

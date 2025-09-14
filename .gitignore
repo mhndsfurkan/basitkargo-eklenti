@@ -1,0 +1,29 @@
+# macOS
+.DS_Store
+
+# IDE
+.idea/
+.vscode/
+
+# Node/WP vendor
+node_modules/
+vendor/
+
+# Archives
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+
+# Temp
+*.tmp
+*.log
+*.bak
+*.swp
+*.swo
+
+# Only track plugin directory
+
+
+# Local docs (not tracked)
+docs/
