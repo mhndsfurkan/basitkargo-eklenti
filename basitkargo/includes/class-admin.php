@@ -654,14 +654,7 @@ class Admin {
             array($this, 'renderSettingsPage')
         );
 
-        add_submenu_page(
-            'basit-kargo',
-            __('Siparişler', 'basit-kargo'),
-            __('Siparişler', 'basit-kargo'),
-            'manage_woocommerce',
-            'basit-kargo-orders',
-            array($this, 'renderOrdersPage')
-        );
+        // 'Siparişler' alt menüsü kaldırıldı
 
         add_submenu_page(
             'basit-kargo',
