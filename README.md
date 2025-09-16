@@ -24,6 +24,24 @@ Açık kaynak, hobi amaçlı geliştirilmiş WooCommerce–Basit Kargo entegrasy
 - Toplu işlemden birden çok siparişi `Kargoya Verildi` yapabilirsiniz.
 - Durumlar WooCommerce’in standart `wc-` önekiyle kaydedilir.
 
+## Opsiyonel: Sipariş Durum Loglayıcı (MU-Plugin)
+Sipariş durum değişimlerini dosyaya yazdırmak için opsiyonel bir MU-plugin dahildir.
+
+Kurulum:
+1. Sunucuda `wp-content/mu-plugins/` dizini yoksa oluşturun.
+2. Bu repodaki `extras/mu-plugins/bk-order-status-logger.php` dosyasını sunucuda `wp-content/mu-plugins/` içine kopyalayın.
+3. İsteğe bağlı: `wp-config.php` içine özel log yolu tanımlayabilirsiniz:
+   ```php
+   define('BK_STATUS_LOG_PATH', __DIR__ . '/wp-content/uploads/basitkargo-logs/order-status.log');
+   ```
+
+Çalışma:
+- `woocommerce_order_status_changed` ve `woocommerce_before_order_object_save` olaylarında JSON satırı olarak `uploads/basitkargo-logs/order-status.log` dosyasına yazar.
+- Her satırda zaman damgası, sipariş ID, eski/yeni durum, aktör bilgisi (kullanıcı ID/login, IP, URI) bulunur.
+
+Kaldırma:
+- MU-plugin dosyasını silmek yeterlidir. Log dosyası `uploads/basitkargo-logs/` altında kalır; isterseniz arşivleyin veya silin.
+
 ## Notlar
 - Bu proje hobi amaçlıdır; resmi Basit Kargo eklentisi değildir.
 - Güvenliğiniz için sunucu kimlik bilgilerini bu repoda tutmayın.
