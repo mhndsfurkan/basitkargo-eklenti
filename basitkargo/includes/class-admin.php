@@ -1290,6 +1290,7 @@ class Admin {
      */
     public function renderMainPage() {
         $current_tab = isset($_GET['tab']) ? $_GET['tab'] : 'settings';
+        if ($current_tab === 'orders') { $current_tab = 'settings'; }
         
         echo '<div class="wrap">';
         echo '<h1>' . __('Basit Kargo', 'basit-kargo') . '</h1>';
@@ -1297,16 +1298,13 @@ class Admin {
         // Tab navigation
         echo '<nav class="nav-tab-wrapper">';
         echo '<a href="' . admin_url('admin.php?page=basit-kargo&tab=settings') . '" class="nav-tab ' . ($current_tab === 'settings' ? 'nav-tab-active' : '') . '">' . __('Ayarlar', 'basit-kargo') . '</a>';
-        echo '<a href="' . admin_url('admin.php?page=basit-kargo&tab=orders') . '" class="nav-tab ' . ($current_tab === 'orders' ? 'nav-tab-active' : '') . '">' . __('Siparişler', 'basit-kargo') . '</a>';
+        
         echo '<a href="' . admin_url('admin.php?page=basit-kargo&tab=sync') . '" class="nav-tab ' . ($current_tab === 'sync' ? 'nav-tab-active' : '') . '">' . __('Senkronizasyon', 'basit-kargo') . '</a>';
         echo '</nav>';
         
         // Tab content
         echo '<div class="tab-content">';
         switch ($current_tab) {
-            case 'orders':
-                $this->renderOrdersPage();
-                break;
             case 'sync':
                 $this->renderSyncPage();
                 break;
@@ -1337,8 +1335,7 @@ class Admin {
         submit_button();
         echo '</form>';
         
-        // Show statistics
-        $this->renderStatistics();
+        // İstatistik bölümü kaldırıldı
         
         echo '</div>';
     }
