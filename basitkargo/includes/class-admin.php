@@ -1063,6 +1063,7 @@ class Admin {
         register_setting('basit_kargo_settings', 'basit_kargo_auto_generate_barcode');
         register_setting('basit_kargo_settings', 'basit_kargo_auto_send_email');
         register_setting('basit_kargo_settings', 'basit_kargo_auto_send_delivered_email');
+        register_setting('basit_kargo_settings', 'basit_kargo_auto_send_delivered_owner_email');
         register_setting('basit_kargo_settings', 'basit_kargo_auto_update_status');
         register_setting('basit_kargo_settings', 'basit_kargo_auto_sync_enabled');
         register_setting('basit_kargo_settings', 'basit_kargo_auto_sync_interval');
@@ -1150,6 +1151,14 @@ class Admin {
             'basit_kargo_auto_send_delivered_email',
             __('Teslim Edildi E-postasını Gönder', 'basit-kargo'),
             array($this, 'autoSendDeliveredEmailFieldCallback'),
+            'basit_kargo_settings',
+            'basit_kargo_automation_section'
+        );
+        
+        add_settings_field(
+            'basit_kargo_auto_send_delivered_owner_email',
+            __('Teslim Edildi E-postası (Site Sahibi)', 'basit-kargo'),
+            array($this, 'autoSendDeliveredOwnerEmailFieldCallback'),
             'basit_kargo_settings',
             'basit_kargo_automation_section'
         );
@@ -1243,6 +1252,12 @@ class Admin {
         $value = get_option('basit_kargo_auto_send_delivered_email', 'yes');
         echo '<input type="checkbox" name="basit_kargo_auto_send_delivered_email" value="yes" ' . checked($value, 'yes', false) . ' />';
         echo '<p class="description">' . __('Sipariş "Teslim Edildi" olduğunda müşteriye bilgilendirme e-postası gönder.', 'basit-kargo') . '</p>';
+    }
+    
+    public function autoSendDeliveredOwnerEmailFieldCallback() {
+        $value = get_option('basit_kargo_auto_send_delivered_owner_email', 'yes');
+        echo '<input type="checkbox" name="basit_kargo_auto_send_delivered_owner_email" value="yes" ' . checked($value, 'yes', false) . ' />';
+        echo '<p class="description">' . __('Sipariş "Teslim Edildi" olduğunda site sahibine de bilgilendirme e-postası gönder.', 'basit-kargo') . '</p>';
     }
     
     public function autoUpdateStatusFieldCallback() {

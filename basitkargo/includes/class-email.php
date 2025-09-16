@@ -361,11 +361,24 @@ class Email {
           </div>
         </body></html>';
         $headers = array('Content-Type: text/html; charset=UTF-8', 'From: ' . get_bloginfo('name') . ' <' . get_option('admin_email') . '>');
-        $sent = wp_mail($recipient, $subject, $message, $headers);
-        if ($sent) { 
+        $sent_customer = wp_mail($recipient, $subject, $message, $headers);
+        if ($sent_customer) { 
             $order->add_order_note(__('Müşteriye teslim edildi maili gönderildi', 'basit-kargo')); 
         }
-        return $sent;
+
+        // Site sahibine de gönder (opsiyon ile kontrol)
+        $send_owner = get_option('basit_kargo_auto_send_delivered_owner_email', 'yes') === 'yes';
+        if ($send_owner) {
+            $owner_email = get_option('basit_kargo_notify_email', get_option('admin_email'));
+            $owner_subject = sprintf(__('Teslim Edildi - #%s', 'basit-kargo'), $order->get_order_number());
+            $owner_message = $message; // aynı içerik yeterli
+            $sent_owner = wp_mail($owner_email, $owner_subject, $owner_message, $headers);
+            if ($sent_owner) {
+                $order->add_order_note(__('Site sahibine teslim edildi maili gönderildi', 'basit-kargo'));
+            }
+        }
+
+        return $sent_customer;
     }
     
     /**
