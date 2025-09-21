@@ -164,6 +164,121 @@
     content: none !important;
 }
 
+/* Ensure Basit Kargo action buttons are visible with text/emoji on all order lists */
+.button.wc-action-button.basit_kargo_manual_trigger,
+.button.wc-action-button.basit_kargo_force_create_barcode,
+.button.wc-action-button.basit_kargo_send_mail,
+.button.wc-action-button.basit_kargo_print_barcode,
+.button.wc-action-button.basit_kargo_print_pdf,
+.button.wc-action-button.basit_kargo_barcode_sync,
+.button.wc-action-button.basit_kargo_manual_tracking_sync,
+.wc-action-button.basit_kargo_manual_trigger,
+.wc-action-button.basit_kargo_force_create_barcode,
+.wc-action-button.basit_kargo_send_mail,
+.wc-action-button.basit_kargo_print_barcode,
+.wc-action-button.basit_kargo_print_pdf,
+.wc-action-button.basit_kargo_barcode_sync,
+.wc-action-button.basit_kargo_manual_tracking_sync {
+    text-indent: 0 !important;
+    background-image: none !important;
+    background-size: 0 !important;
+    min-width: auto !important;
+    width: auto !important;
+    height: auto !important;
+    line-height: 1.3 !important;
+    overflow: visible !important;
+    white-space: nowrap !important;
+}
+
+.button.wc-action-button.basit_kargo_manual_trigger::before,
+.button.wc-action-button.basit_kargo_force_create_barcode::before,
+.button.wc-action-button.basit_kargo_send_mail::before,
+.button.wc-action-button.basit_kargo_print_barcode::before,
+.button.wc-action-button.basit_kargo_print_pdf::before,
+.button.wc-action-button.basit_kargo_barcode_sync::before,
+.button.wc-action-button.basit_kargo_manual_tracking_sync::before,
+.button.wc-action-button.basit_kargo_manual_trigger::after,
+.button.wc-action-button.basit_kargo_force_create_barcode::after,
+.button.wc-action-button.basit_kargo_send_mail::after,
+.button.wc-action-button.basit_kargo_print_barcode::after,
+.button.wc-action-button.basit_kargo_print_pdf::after,
+.button.wc-action-button.basit_kargo_barcode_sync::after,
+.button.wc-action-button.basit_kargo_manual_tracking_sync::after,
+.wc-action-button.basit_kargo_manual_trigger::before,
+.wc-action-button.basit_kargo_force_create_barcode::before,
+.wc-action-button.basit_kargo_send_mail::before,
+.wc-action-button.basit_kargo_print_barcode::before,
+.wc-action-button.basit_kargo_print_pdf::before,
+.wc-action-button.basit_kargo_barcode_sync::before,
+.wc-action-button.basit_kargo_manual_tracking_sync::before,
+.wc-action-button.basit_kargo_manual_trigger::after,
+.wc-action-button.basit_kargo_force_create_barcode::after,
+.wc-action-button.basit_kargo_send_mail::after,
+.wc-action-button.basit_kargo_print_barcode::after,
+.wc-action-button.basit_kargo_print_pdf::after,
+.wc-action-button.basit_kargo_barcode_sync::after,
+.wc-action-button.basit_kargo_manual_tracking_sync::after {
+    display: none !important;
+    content: none !important;
+}
+
+/* Flat style for Basit Kargo action buttons - remove border/background */
+.button.wc-action-button.basit_kargo_manual_trigger,
+.button.wc-action-button.basit_kargo_force_create_barcode,
+.button.wc-action-button.basit_kargo_send_mail,
+.button.wc-action-button.basit_kargo_print_barcode,
+.button.wc-action-button.basit_kargo_print_pdf,
+.button.wc-action-button.basit_kargo_barcode_sync,
+.button.wc-action-button.basit_kargo_manual_tracking_sync,
+.wc-action-button.basit_kargo_manual_trigger,
+.wc-action-button.basit_kargo_force_create_barcode,
+.wc-action-button.basit_kargo_send_mail,
+.wc-action-button.basit_kargo_print_barcode,
+.wc-action-button.basit_kargo_print_pdf,
+.wc-action-button.basit_kargo_barcode_sync,
+.wc-action-button.basit_kargo_manual_tracking_sync,
+.woocommerce-order-actions .button.basit_kargo_manual_trigger,
+.woocommerce-order-actions .button.basit_kargo_send_mail,
+.woocommerce-order-actions .button.basit_kargo_print_barcode,
+.woocommerce-order-actions .button.basit_kargo_print_pdf,
+.woocommerce-order-actions .button.basit_kargo_barcode_sync,
+.woocommerce-order-actions .button.basit_kargo_manual_tracking_sync,
+.woocommerce-order-actions .basit-kargo-custom-button {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 0 4px !important;
+}
+
+.button.wc-action-button.basit_kargo_manual_trigger:hover,
+.button.wc-action-button.basit_kargo_force_create_barcode:hover,
+.button.wc-action-button.basit_kargo_send_mail:hover,
+.button.wc-action-button.basit_kargo_print_barcode:hover,
+.button.wc-action-button.basit_kargo_print_pdf:hover,
+.button.wc-action-button.basit_kargo_barcode_sync:hover,
+.button.wc-action-button.basit_kargo_manual_tracking_sync:hover,
+.wc-action-button.basit_kargo_manual_trigger:hover,
+.wc-action-button.basit_kargo_force_create_barcode:hover,
+.wc-action-button.basit_kargo_send_mail:hover,
+.wc-action-button.basit_kargo_print_barcode:hover,
+.wc-action-button.basit_kargo_print_pdf:hover,
+.wc-action-button.basit_kargo_barcode_sync:hover,
+.wc-action-button.basit_kargo_manual_tracking_sync:hover,
+.woocommerce-order-actions .button.basit_kargo_manual_trigger:hover,
+.woocommerce-order-actions .button.basit_kargo_send_mail:hover,
+.woocommerce-order-actions .button.basit_kargo_print_barcode:hover,
+.woocommerce-order-actions .button.basit_kargo_print_pdf:hover,
+.woocommerce-order-actions .button.basit_kargo_barcode_sync:hover,
+.woocommerce-order-actions .button.basit_kargo_manual_tracking_sync:hover,
+.woocommerce-order-actions .basit-kargo-custom-button:hover {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
 /* Settings page styles */
 .basit-kargo-settings-page .form-table th {
     width: 200px;
