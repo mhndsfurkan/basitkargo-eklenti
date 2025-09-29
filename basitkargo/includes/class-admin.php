@@ -566,36 +566,42 @@ class Admin {
             return;
         }
         
-        // Sadece aktif siparişleri sync et (son 7 gün)
+        // HPOS uyumlu şekilde siparişleri getir (son 7 gün)
         $orders = wc_get_orders(array(
             'limit' => 50,
             'status' => array('processing', 'shipped', 'delivered'),
             'date_created' => '>' . (time() - 7 * 24 * 60 * 60),
-            'meta_query' => array(
-                array(
-                    'key' => 'basit_kargo_barcode',
-                    'compare' => 'EXISTS'
-                )
-            )
         ));
         
-        if (empty($orders)) {
+        // Basit Kargo barcode'u olan siparişleri filtrele
+        $filtered_orders = array();
+        foreach ($orders as $order) {
+            if ($order->get_meta('basit_kargo_barcode')) {
+                $filtered_orders[] = $order;
+            }
+        }
+        
+        if (empty($filtered_orders)) {
+            error_log("BasitKargo Auto Sync: Sync edilecek sipariş bulunamadı");
             return;
         }
         
-        error_log("BasitKargo Auto Sync: " . count($orders) . " sipariş sync ediliyor");
+        error_log("BasitKargo Auto Sync: " . count($filtered_orders) . " sipariş sync ediliyor");
         
-        $api = new \BasitKargo\Api();
+        $api = new \BasitKargo\API();
         $synced_count = 0;
         
-        foreach ($orders as $order) {
+        foreach ($filtered_orders as $order) {
             try {
-                $result = $api->syncOrder($order->get_id());
+                $result = $api->fetchBarcodeData($order);
                 if ($result['success']) {
                     $synced_count++;
+                    error_log("BasitKargo Auto Sync: Sipariş " . $order->get_id() . " başarıyla sync edildi");
+                } else {
+                    error_log("BasitKargo Auto Sync Error for Order " . $order->get_id() . ": " . $result['message']);
                 }
             } catch (Exception $e) {
-                error_log("BasitKargo Auto Sync Error for Order " . $order->get_id() . ": " . $e->getMessage());
+                error_log("BasitKargo Auto Sync Exception for Order " . $order->get_id() . ": " . $e->getMessage());
             }
         }
         

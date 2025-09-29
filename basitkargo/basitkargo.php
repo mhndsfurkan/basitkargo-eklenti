@@ -211,3 +211,45 @@ function basit_kargo_init() {
 
 // Start the plugin
 basit_kargo_init();
+
+if (defined('WP_CLI') && WP_CLI) {
+    WP_CLI::add_command('basitkargo', 'BasitKargo_CLI');
+}
+
+class BasitKargo_CLI {
+    /**
+     * Sync a single order by ID
+     *
+     * ## OPTIONS
+     *
+     * <order_id>
+     * : The ID of the order to sync.
+     *
+     * ## EXAMPLES
+     *
+     *     wp basitkargo sync 123
+     *
+     * @param array $args
+     * @param array $assoc_args
+     */
+    public function sync($args, $assoc_args) {
+        list($order_id) = $args;
+        $order = wc_get_order($order_id);
+        if (!$order) {
+            WP_CLI::error("Order not found: $order_id");
+            return;
+        }
+
+        WP_CLI::line("Syncing order $order_id...");
+
+        $api = new BasitKargo\API();
+        $result = $api->fetchBarcodeData($order);
+
+        if ($result['success']) {
+            WP_CLI::success("Order $order_id synced successfully.");
+            WP_CLI::line("New status: " . $order->get_meta('basit_kargo_status'));
+        } else {
+            WP_CLI::error("Failed to sync order $order_id: " . $result['message']);
+        }
+    }
+}
